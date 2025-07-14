@@ -1,0 +1,20 @@
+{
+  "commands": [
+    {
+      "name": "hello",
+      "description": "Says hello to the user."
+    },
+    {
+      "name": "setname",
+      "description": "Sets a name for the user."
+    },
+    {
+      "name": "getusername",
+      "description": "Tells the user their stored name."
+    },
+    {
+      "name": "help",
+      "description": "Displays a list of all available commands."
+    }
+  ]
+}
