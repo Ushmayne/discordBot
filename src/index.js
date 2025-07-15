@@ -16,8 +16,6 @@ const client = new Client({
     ]
 });
 
-client.userNames = new Map();//declaring variable to store usernames
-//const commands = JSON.parse(fs.readFileSync('commands.json'));//file to read commands from
 
 // Event listener for when the bot is ready
     client.once('ready', () => {

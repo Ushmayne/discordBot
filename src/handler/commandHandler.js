@@ -17,7 +17,6 @@ module.exports = (client) => {
     client.on('messageCreate', (message) => {
         if (message.author.bot) return;  // Ignore messages from other bots
         updateMessageCount(message);  // Update message count for the user
-
         if (!message.content.startsWith('!')) return;  // Ignore messages that don't start with '!'
 
         const args = message.content.slice(1).trim().split(/ +/);  // Split command and arguments
