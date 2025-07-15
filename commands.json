@@ -9,7 +9,7 @@
       "description": "Sets a name for the user."
     },
     {
-      "name": "getusername",
+      "name": "getname",
       "description": "Tells the user their stored name."
     },
     {
