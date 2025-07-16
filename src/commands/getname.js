@@ -8,12 +8,12 @@ module.exports = {
         const userId = message.author.id;//gets user id for the user
         try{
             const user = await messageCountSchema.findOne({ userId: userId }); // Find the user by userId      
-            if (user&& user.userName!== ' ') {
+            if (user&& user.userName!== ' ') {//if there is a record for the user and the userName is not empty it will display the userName
                 message.channel.send(`Your name is: ${user.userName}`);
             } else{
                 message.channel.send('You have not set a name yet. Use !setname to set your name.');
             }
-        }catch{
+        }catch{//if there is an error it will display the error
             console.error('Error fetching user name:', error);
             message.channel.send('An error occurred while fetching your name.');
             return;

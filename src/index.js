@@ -1,11 +1,15 @@
 require('dotenv').config();  // Loads environment variables from .env
+const { Configuration, OpenAIApi } = require('openai');
 const { token } = process.env;  // Bot token loaded from .env
 const { Client, GatewayIntentBits } = require('discord.js');  // Import Discord.js
 const fs = require('fs');  // File system module (if needed for commands or files)
 const mongoose = require('mongoose');  // Import mongoose for MongoDB interactions
 const commandHandler = require('./handler/commandHandler.js');
 require('./handler/commandHandler.js');
+const { getGPTResponse } = require('./functions/openAI');
 //const messageCountSchema = require('./messageCountSchema');  // Import the message count schema
+
+
 
 const client = new Client({
     intents: [
@@ -25,27 +29,16 @@ const client = new Client({
             keepAliveInitialDelay: 30000,
         });
 
-        commandHandler(client);
+        commandHandler(client);//calls the command handler to load commands
     });
         
 
-
-
-
+// Event listener for when a new member joins the server
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
     if (!channel) return;
     channel.send(`Hello, ${member.user.username}! Welcome to the server!`);
 });
-
-
-
-
-
-// Event listener for when a new member joins the server
-
-
-
 
 
 // Log in to Discord with your app's token

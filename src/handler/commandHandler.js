@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
+const { Configuration, OpenAIApi } = require('openai');
 const mongoose = require('mongoose');  // Import mongoose for MongoDB interactions
 const messageCountSchema = require('../messageCountSchema');  // Import the message count schema
+const { getGPTResponse } = require('../functions/openAI');
 
 module.exports = (client) => {
     // load all command files
@@ -39,7 +41,7 @@ module.exports = (client) => {
         let user = await messageCountSchema.findOneAndUpdate({
             userId: userId
         }, {
-            $inc: { messageCount: 1, }  // Increment the message count by 1
+            $inc: { messageCount: 5, }  // Increment the message count by 5 as these will be the channel points
         }, {
             new: true,  // Return the updated document
             upsert: true  // Create a new document if it doesn't exist
