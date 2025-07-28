@@ -9,6 +9,7 @@ module.exports = (client) => {
     // load all command files
     client.commands = new Map();
     const commandFiles = fs.readdirSync(path.join(__dirname, '..', 'commands')).filter(file => file.endsWith('.js'));
+    let Option = '';
 
     for (const file of commandFiles) {
         const command = require(path.join(__dirname, '..', 'commands', file));
