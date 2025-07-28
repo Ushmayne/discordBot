@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 module.exports = {
     name: 'getname',
-    description: 'gets the user name fronm the database',
+    description: 'gets the user name from the database',
     async execute(message) {
         const userId = message.author.id;//gets user id for the user
         try{

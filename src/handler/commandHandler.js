@@ -42,15 +42,13 @@ module.exports = (client) => {
         let user = await messageCountSchema.findOneAndUpdate({
             userId: userId
         }, {
-            $inc: { messageCount: 5, }  // Increment the message count by 5 as these will be the channel points
+            $inc: { userPoints: 5, messageCount: 1}  // Increment the message count by 5 as these will be the channel points
         }, {
             new: true,  // Return the updated document
             upsert: true  // Create a new document if it doesn't exist
         });
 
         
-
-        console.log(`User ${userId} message count: ${user.count}`);
     } catch (error) {
         console.error('Error incrementing message count:', error);
     }

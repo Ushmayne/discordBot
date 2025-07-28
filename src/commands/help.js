@@ -7,7 +7,9 @@ module.exports = {
         !hello - Says hello to the user.
         !setname <name> - Set your name.
         !getname - Tells you your stored name.
-        !gptchat <message> - Chat with the bot using GPT-3.
+        !gptchat <message> - Chat with the bot using GPT-4.
+        !gptimage <image description> - Ask GPT-4 to generate an image for you
+        !channelpoints - Displays how many channel points you have and how many messages you have sent in the discord
         `;
         message.channel.send(helpMessage);
     }
