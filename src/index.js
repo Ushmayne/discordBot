@@ -1,7 +1,7 @@
 require('dotenv').config();  // Loads environment variables from .env
 const { Configuration, OpenAIApi } = require('openai');
 const { token } = process.env;  // Bot token loaded from .env
-const { Client, GatewayIntentBits } = require('discord.js');  // Import Discord.js
+const { Client, GatewayIntentBits,Partials } = require('discord.js');  // Import Discord.js
 const fs = require('fs');  // File system module (if needed for commands or files)
 const mongoose = require('mongoose');  // Import mongoose for MongoDB interactions
 const commandHandler = require('./handler/commandHandler.js');
@@ -17,7 +17,13 @@ const client = new Client({
         GatewayIntentBits.GuildMembers,         // For tracking member joins
         GatewayIntentBits.MessageContent,       // For reading message content
         GatewayIntentBits.GuildMessages,        // For handling messages in guilds
-    ]
+        GatewayIntentBits.GuildMessageReactions, //for reactions
+    ],
+    partials: [
+        Partials.Message,
+        Partials.Channel,
+        Partials.Reaction,
+  ]
 });
 
 
